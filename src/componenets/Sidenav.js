@@ -48,7 +48,7 @@ export default function Sidenav() {
       <div className="flex justify-center items-center relative">
         <div className="logo flex justify-center">
           {collapsed ? (
-            <Logo width="20px" />
+            <Logo width="20px" height="36px" />
           ) : (
             <LogoXl width="100%" height="36px" />
           )}
