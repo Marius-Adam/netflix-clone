@@ -19,7 +19,7 @@ module.exports = {
         "lg-max": { max: "992px" },
         "md-max": { max: "768px" },
         "sm-max": { max: "576px" },
-        "xs-max": { max: "420px" },
+        "xs-max": { max: "360px" },
       },
       spacing: {
         72: "18rem",
