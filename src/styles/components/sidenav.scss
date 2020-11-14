@@ -1,0 +1,32 @@
+.menu-items {
+  display: flex;
+
+  &:hover {
+    svg {
+      fill: #ffffff;
+      stroke: #ffffff;
+      transform: scale(1.1);
+      transition: all 0.4s;
+    }
+    span {
+      color: #ffffff;
+      transition: all 0.4s;
+    }
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: #909090;
+    cursor: pointer;
+    transition: all 0.4s;
+    margin-right: 0.75rem;
+  }
+
+  span {
+    font-family: "Montserrat", sans-serif;
+    color: #909090;
+    cursor: pointer;
+    transition: all 0.4s;
+  }
+}

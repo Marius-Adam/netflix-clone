@@ -1,9 +1,9 @@
-import SideNav from "./componenets/SideNav";
+import Sidenav from "./componenets/Sidenav";
 
 function App() {
   return (
     <>
-      <SideNav />
+      <Sidenav />
     </>
   );
 }
