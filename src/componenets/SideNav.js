@@ -62,7 +62,7 @@ export default function Sidenav() {
       <div className="flex justify-center">
         <div className={`flex flex-col justify-between h-84 mt-16`}>
           {menu.menuItems.map((item, index) => (
-            <div className="menu-items" key={index}>
+            <div className="menu-items flex items-center" key={index}>
               {item.icon}
               {!collapsed && <span>{item.label}</span>}
             </div>
