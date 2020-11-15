@@ -17,9 +17,7 @@ export default function Login() {
     history.replace("/home");
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  const onFinishFailed = (errorInfo) => {};
 
   return (
     <div className="login">
@@ -27,11 +25,11 @@ export default function Login() {
       <img
         src={LoginBg}
         alt="netflix movies login cover"
-        className="h-screen w-100 object-cover"
+        className="h-screen w-screen object-cover"
       />
       <Card className="bg-black bg-opacity-75 border-0 rounded w-96 sm:pt-0 sm:px-8 sm:pb-4 sm-max:w-84 xs-max:w-70 xs-max:mt-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-4xl text-white font-medium text-shadow-md tracking-tight">
+          <h1 className="text-4xl text-white font-medium text-shadow-md tracking-tighter">
             Sign in
           </h1>
           <Logo className="card-logo hidden" width="20px" height="30px" />
