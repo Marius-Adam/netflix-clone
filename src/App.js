@@ -15,34 +15,39 @@ import List from "./pages/List";
 import NewReleases from "./pages/NewReleases";
 
 //Componenets
+import Sidenav from "./componenets/Sidenav";
+import Layout from "antd/lib/layout/layout";
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path={"/login"}>
-          <Login />
-        </Route>
-        <Route path={"/search"}>
-          <Search />
-        </Route>
-        <Route path={"/home"}>
-          <Home />
-        </Route>
-        <Route path={"/series"}>
-          <Series />
-        </Route>
-        <Route path={"/movies"}>
-          <Movies />
-        </Route>
-        <Route path={"/list"}>
-          <List />
-        </Route>
-        <Route path={"/new"}>
-          <NewReleases />
-        </Route>
-        <Route path="/" render={() => <Redirect to={"/login"} />} />
-      </Switch>
+      <Layout className="flex-row">
+        <Sidenav />
+        <Switch>
+          <Route exact path={"/login"}>
+            <Login />
+          </Route>
+          <Route path={"/search"}>
+            <Search />
+          </Route>
+          <Route path={"/home"}>
+            <Home />
+          </Route>
+          <Route path={"/series"}>
+            <Series />
+          </Route>
+          <Route path={"/movies"}>
+            <Movies />
+          </Route>
+          <Route path={"/list"}>
+            <List />
+          </Route>
+          <Route path={"/new"}>
+            <NewReleases />
+          </Route>
+          <Route path="/" render={() => <Redirect to={"/login"} />} />
+        </Switch>
+      </Layout>
     </Router>
   );
 }
