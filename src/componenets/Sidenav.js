@@ -18,7 +18,7 @@ import { ReactComponent as ClapperBoard } from "../assets/icons/clapperboard.svg
 const { Sider } = Layout;
 
 export default function Sidenav() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   const menu = {
     menuItems: [

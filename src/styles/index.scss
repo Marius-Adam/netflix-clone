@@ -1,5 +1,7 @@
 @import "./variables.scss";
 
-html {
-  --antd-wave-shadow-color: $red !important;
+body,
+html,
+.app {
+  height: 100%;
 }

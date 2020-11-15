@@ -14,7 +14,6 @@ export default function Login() {
   const history = useHistory();
 
   const onFinish = (values) => {
-    console.log("Success:", values);
     history.replace("/home");
   };
 
@@ -28,7 +27,7 @@ export default function Login() {
       <img
         src={LoginBg}
         alt="netflix movies login cover"
-        className="w-screen h-screen object-cover"
+        className="h-screen w-100 object-cover"
       />
       <Card className="bg-black bg-opacity-75 border-0 rounded w-96 sm:pt-0 sm:px-8 sm:pb-4 sm-max:w-84 xs-max:w-70 xs-max:mt-4">
         <div className="flex items-center justify-between">
@@ -53,7 +52,7 @@ export default function Login() {
             rules={[
               {
                 required: true,
-                type: "email",
+                // type: "email",
                 message: "Please enter a valid email address!",
               },
             ]}
