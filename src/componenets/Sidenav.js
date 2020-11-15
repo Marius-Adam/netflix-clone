@@ -22,12 +22,36 @@ export default function Sidenav() {
 
   const menu = {
     menuItems: [
-      { icon: <SearchOutlined />, label: "Search", link: "/search" },
-      { icon: <HomeOutlined />, label: "Home", link: "/home" },
-      { icon: <Television />, label: "Series", link: "/series" },
-      { icon: <ClapperBoard />, label: "Movies", link: "/movies" },
-      { icon: <PlusOutlined />, label: "My List", link: "/list" },
-      { icon: <CalendarOutlined />, label: "New", link: "/new" },
+      {
+        icon: <SearchOutlined className={!collapsed ? "mr-4" : "mr-0"} />,
+        label: "Search",
+        link: "/search",
+      },
+      {
+        icon: <HomeOutlined className={!collapsed ? "mr-4" : "mr-0"} />,
+        label: "Home",
+        link: "/home",
+      },
+      {
+        icon: <Television className={!collapsed ? "mr-4" : "mr-0"} />,
+        label: "Series",
+        link: "/series",
+      },
+      {
+        icon: <ClapperBoard className={!collapsed ? "mr-4" : "mr-0"} />,
+        label: "Movies",
+        link: "/movies",
+      },
+      {
+        icon: <PlusOutlined className={!collapsed ? "mr-4" : "mr-0"} />,
+        label: "My List",
+        link: "/list",
+      },
+      {
+        icon: <CalendarOutlined className={!collapsed ? "mr-4" : "mr-0"} />,
+        label: "New",
+        link: "/new",
+      },
     ],
   };
 
