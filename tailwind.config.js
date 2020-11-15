@@ -11,6 +11,7 @@ module.exports = {
         black: "#000000",
         white: "#ffffff",
         gray: "#564d4d",
+        lightgray: "#808080",
         burgundy: "#831010",
       },
       screens: {
@@ -22,6 +23,7 @@ module.exports = {
         "xs-max": { max: "360px" },
       },
       spacing: {
+        70: "17rem",
         72: "18rem",
         84: "21rem",
         96: "24rem",

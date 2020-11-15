@@ -10,6 +10,7 @@
     left: 1rem;
   }
 
+  //Ant card styles override
   .ant-card {
     position: absolute;
     top: 50%;
@@ -27,6 +28,8 @@
     height: 3rem;
     color: #ffffff;
     border-radius: 4px;
+    font-size: 0.85rem;
+    border: 1px solid $black;
 
     &:hover,
     &:focus {
@@ -41,6 +44,8 @@
     border-radius: 4px;
     padding: 0 11px;
     background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid $black;
+
     &:hover,
     &:focus {
       background-color: rgba(0, 0, 0, 0.8);
@@ -76,6 +81,7 @@
     color: $red;
     font-size: 0.7rem;
     min-height: 0;
+    margin-left: 0.25rem;
   }
 
   .ant-input-password-icon {
@@ -90,20 +96,25 @@
     -webkit-box-shadow: 0 0 0 100px #000000 inset;
     box-shadow: 0 0 0 60px #000000 inset;
     font-family: "Montserrat", sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #ffffff !important;
   }
 
   .input::placeholder {
     font-family: "Montserrat", Arial, Helvetica, sans-serif;
-    opacity: 1; /* Firefox */
+    opacity: 1;
   }
+
   //Ant checkbox styles override
+  .ant-form label {
+    font-size: 12px;
+  }
 
   .ant-checkbox-input:focus + .ant-checkbox-inner,
   .ant-checkbox-wrapper:hover .ant-checkbox-inner,
   .ant-checkbox:hover {
     border-color: $red;
+    font-size: 12px;
   }
 
   .ant-checkbox-checked .ant-checkbox-inner {
@@ -114,12 +125,49 @@
     border: none;
   }
 
+  //Ant button styles override
   .ant-btn {
     border: none;
+    box-shadow: 0px 5px 10px #000000;
 
     &:hover,
     &:focus {
-      box-shadow: $red;
+      transform: translateY(1px);
+      box-shadow: 0px 2px 5px #000000;
+      background-color: $red;
+      border-color: $red;
+    }
+  }
+}
+
+//Small screens lanscape orientation
+@media only screen and (min-device-width: 280px) and (max-device-width: 860px) and (orientation: landscape) {
+  .login {
+    svg {
+      display: none;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .ant-card {
+      width: 34rem;
+      .ant-card-body {
+        padding: 14px 24px 0 24px;
+      }
+      .card-logo {
+        display: flex;
+      }
+    }
+
+    .ant-form {
+      .ant-form-item {
+        margin: 0.25rem 1rem;
+      }
+    }
+
+    .facebook,
+    .google {
+      display: none;
     }
   }
 }
