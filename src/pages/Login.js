@@ -1,6 +1,7 @@
 import React from "react";
 import LoginBg from "../assets/images/login-bg.png";
 import "../styles/pages/login.scss";
+import { useHistory } from "react-router-dom";
 
 import { Card, Input, Form, Button, Checkbox } from "antd";
 
@@ -10,8 +11,11 @@ import { ReactComponent as Facebook } from "../assets/icons/facebook.svg";
 import { ReactComponent as Google } from "../assets/icons/google.svg";
 
 export default function Login() {
+  const history = useHistory();
+
   const onFinish = (values) => {
     console.log("Success:", values);
+    history.replace("/home");
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -49,7 +53,8 @@ export default function Login() {
             rules={[
               {
                 required: true,
-                message: "Please input your username!",
+                type: "email",
+                message: "Please enter a valid email address!",
               },
             ]}
           >
@@ -73,7 +78,11 @@ export default function Login() {
             </Checkbox>
           </Form.Item>
           <Form.Item className="mb-8">
-            <Button type="primary" className="bg-red w-full h-12">
+            <Button
+              type="primary"
+              className="bg-red w-full h-12"
+              htmlType="submit"
+            >
               Sign in
             </Button>
           </Form.Item>

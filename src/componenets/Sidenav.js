@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/components/sidenav.scss";
+import { Link } from "react-router-dom";
 import { Layout } from "antd";
 import {
   LeftOutlined,
@@ -17,16 +18,16 @@ import { ReactComponent as ClapperBoard } from "../assets/icons/clapperboard.svg
 const { Sider } = Layout;
 
 export default function Sidenav() {
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
 
   const menu = {
     menuItems: [
-      { icon: <SearchOutlined />, label: "Search" },
-      { icon: <HomeOutlined />, label: "Home" },
-      { icon: <Television />, label: "Series" },
-      { icon: <ClapperBoard />, label: "Movies" },
-      { icon: <PlusOutlined />, label: "My List" },
-      { icon: <CalendarOutlined />, label: "New" },
+      { icon: <SearchOutlined />, label: "Search", link: "/search" },
+      { icon: <HomeOutlined />, label: "Home", link: "/home" },
+      { icon: <Television />, label: "Series", link: "/series" },
+      { icon: <ClapperBoard />, label: "Movies", link: "/movies" },
+      { icon: <PlusOutlined />, label: "My List", link: "/list" },
+      { icon: <CalendarOutlined />, label: "New", link: "/new" },
     ],
   };
 
@@ -36,10 +37,6 @@ export default function Sidenav() {
 
   return (
     <Sider
-      breakpoint="lg"
-      onBreakpoint={() => {
-        setCollapsed(!collapsed);
-      }}
       collapsible
       collapsed={collapsed}
       trigger={null}
@@ -62,10 +59,12 @@ export default function Sidenav() {
       <div className="flex justify-center">
         <div className={`flex flex-col justify-between h-84 mt-16`}>
           {menu.menuItems.map((item, index) => (
-            <div className="menu-items flex items-center" key={index}>
-              {item.icon}
-              {!collapsed && <span>{item.label}</span>}
-            </div>
+            <Link to={item.link} key={index}>
+              <div className="menu-items flex items-center">
+                {item.icon}
+                {!collapsed && <span>{item.label}</span>}
+              </div>
+            </Link>
           ))}
         </div>
       </div>
