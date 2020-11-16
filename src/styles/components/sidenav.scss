@@ -1,13 +1,15 @@
+@import "../variables.scss";
+
 .menu-items {
   &:hover {
     svg {
-      fill: #ffffff;
-      stroke: #ffffff;
+      fill: $white;
+      stroke: $white;
       transform: scale(1.1);
       transition: all 0.4s;
     }
     span {
-      color: #ffffff;
+      color: $white;
       transition: all 0.4s;
     }
   }
@@ -15,15 +17,19 @@
   svg {
     width: 1.5rem;
     height: 1.5rem;
-    fill: #909090;
+    fill: $lightgray;
     cursor: pointer;
     transition: all 0.4s;
   }
 
   span {
     font-family: "Montserrat", sans-serif;
-    color: #909090;
+    color: $lightgray;
     cursor: pointer;
     transition: all 0.4s;
   }
+}
+
+.opaque {
+  background: rgba(0, 0, 0, 0.85);
 }

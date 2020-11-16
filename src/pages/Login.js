@@ -1,10 +1,10 @@
 import React from "react";
-import LoginBg from "../assets/images/login-bg.png";
 import "../styles/pages/login.scss";
 import { useHistory } from "react-router-dom";
 
 import { Card, Input, Form, Button, Checkbox } from "antd";
 
+import LoginBg from "../assets/images/login-bg.png";
 import { ReactComponent as LogoXl } from "../assets/images/netflix-logo-large.svg";
 import { ReactComponent as Logo } from "../assets/images/netflix-logo.svg";
 import { ReactComponent as Facebook } from "../assets/icons/facebook.svg";
@@ -50,7 +50,7 @@ export default function Login() {
             rules={[
               {
                 required: true,
-                // type: "email",
+                type: "email",
                 message: "Please enter a valid email address!",
               },
             ]}

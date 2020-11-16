@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/components/sidenav.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Layout } from "antd";
 import {
   LeftOutlined,
@@ -19,6 +19,8 @@ const { Sider } = Layout;
 
 export default function Sidenav() {
   const [collapsed, setCollapsed] = useState(true);
+  const [hidden, setHidden] = useState(false);
+  const location = useLocation();
 
   const menu = {
     menuItems: [
@@ -55,6 +57,14 @@ export default function Sidenav() {
     ],
   };
 
+  useEffect(() => {
+    if (location.pathname === "/login") {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  }, [location]);
+
   const toggle = () => {
     setCollapsed(!collapsed);
   };
@@ -64,7 +74,9 @@ export default function Sidenav() {
       collapsible
       collapsed={collapsed}
       trigger={null}
-      className="h-screen py-4 bg-black duration-300"
+      className={`h-screen py-4 bg-black duration-300 fixed z-10 ${
+        !collapsed && "opaque"
+      } ${hidden && "hidden"}`}
     >
       <div className="flex justify-center items-center relative">
         <div className="logo flex justify-center">
