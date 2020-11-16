@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/components/sidenav.scss";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Layout } from "antd";
 import {
   LeftOutlined,
@@ -95,12 +95,15 @@ export default function Sidenav() {
       <div className="flex justify-center">
         <div className={`flex flex-col justify-between h-84 mt-16`}>
           {menu.menuItems.map((item, index) => (
-            <Link to={item.link} key={index}>
-              <div className="menu-items flex items-center">
-                {item.icon}
-                {!collapsed && <span>{item.label}</span>}
-              </div>
-            </Link>
+            <NavLink
+              to={item.link}
+              key={index}
+              className="menu-items flex items-center"
+              activeClassName="menu-items"
+            >
+              {item.icon}
+              {!collapsed && <span>{item.label}</span>}
+            </NavLink>
           ))}
         </div>
       </div>

@@ -1,7 +1,10 @@
 @import "../variables.scss";
 
 .menu-items {
-  &:hover {
+  outline: none;
+
+  &:hover,
+  &:focus {
     svg {
       fill: $white;
       stroke: $white;

@@ -6,7 +6,7 @@ const { Content } = Layout;
 export default function Home() {
   return (
     <Layout className="flex-row">
-      <Content>Home</Content>
+      <Content className="h-screen">Home</Content>
     </Layout>
   );
 }
