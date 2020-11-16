@@ -6,7 +6,7 @@ const { Content } = Layout;
 export default function Movies() {
   return (
     <Layout>
-      <Content>Movies</Content>
+      <Content className="h-screen text-center text-4xl">Movies</Content>
     </Layout>
   );
 }

@@ -6,7 +6,7 @@ const { Content } = Layout;
 export default function List() {
   return (
     <Layout>
-      <Content>List</Content>
+      <Content className="h-screen text-center text-4xl">List</Content>
     </Layout>
   );
 }

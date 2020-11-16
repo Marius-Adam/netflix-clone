@@ -6,7 +6,7 @@ const { Content } = Layout;
 export default function NewReleases() {
   return (
     <Layout>
-      <Content>New Releases</Content>
+      <Content className="h-screen text-center text-4xl">New Releases</Content>
     </Layout>
   );
 }

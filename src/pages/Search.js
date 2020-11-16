@@ -6,7 +6,7 @@ const { Content } = Layout;
 export default function Search() {
   return (
     <Layout>
-      <Content>Search</Content>
+      <Content className="h-screen text-center text-4xl">Search</Content>
     </Layout>
   );
 }

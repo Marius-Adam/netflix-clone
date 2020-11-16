@@ -6,7 +6,7 @@ const { Content } = Layout;
 export default function Series() {
   return (
     <Layout>
-      <Content>Series</Content>
+      <Content className="h-screen text-center text-4xl">Series</Content>
     </Layout>
   );
 }

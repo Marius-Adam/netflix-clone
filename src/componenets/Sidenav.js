@@ -99,7 +99,7 @@ export default function Sidenav() {
               to={item.link}
               key={index}
               className="menu-items flex items-center"
-              activeClassName="menu-items"
+              activeClassName="active-link"
             >
               {item.icon}
               {!collapsed && <span>{item.label}</span>}
