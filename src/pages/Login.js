@@ -70,9 +70,7 @@ export default function Login() {
             <Input.Password placeholder="Password" />
           </Form.Item>
           <Form.Item name="remember" className="mb-4" valuePropName="checked">
-            <Checkbox className="ml-1 mt-2 text-lightgray">
-              Remember me
-            </Checkbox>
+            <Checkbox className="ml-1 text-lightgray">Remember me</Checkbox>
           </Form.Item>
           <Form.Item className="mb-8">
             <Button
