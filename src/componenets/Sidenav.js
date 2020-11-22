@@ -19,38 +19,38 @@ const { Sider } = Layout;
 
 export default function Sidenav() {
   const [collapsed, setCollapsed] = useState(true);
-  const [hidden, setHidden] = useState(false);
+  const [logoHidden, setLogoHidden] = useState(false);
   const location = useLocation();
 
   const menu = {
     menuItems: [
       {
-        icon: <SearchOutlined className={!collapsed ? "mr-4" : "mr-0"} />,
+        icon: SearchOutlined,
         label: "Search",
         link: "/search",
       },
       {
-        icon: <HomeOutlined className={!collapsed ? "mr-4" : "mr-0"} />,
+        icon: HomeOutlined,
         label: "Home",
         link: "/home",
       },
       {
-        icon: <Television className={!collapsed ? "mr-4" : "mr-0"} />,
+        icon: Television,
         label: "Series",
         link: "/series",
       },
       {
-        icon: <ClapperBoard className={!collapsed ? "mr-4" : "mr-0"} />,
+        icon: ClapperBoard,
         label: "Movies",
         link: "/movies",
       },
       {
-        icon: <PlusOutlined className={!collapsed ? "mr-4" : "mr-0"} />,
+        icon: PlusOutlined,
         label: "My List",
         link: "/list",
       },
       {
-        icon: <CalendarOutlined className={!collapsed ? "mr-4" : "mr-0"} />,
+        icon: CalendarOutlined,
         label: "New",
         link: "/new",
       },
@@ -59,9 +59,9 @@ export default function Sidenav() {
 
   useEffect(() => {
     if (location.pathname === "/login") {
-      setHidden(true);
+      setLogoHidden(true);
     } else {
-      setHidden(false);
+      setLogoHidden(false);
     }
   }, [location]);
 
@@ -76,7 +76,7 @@ export default function Sidenav() {
       trigger={null}
       className={`h-screen py-4 bg-black duration-300 fixed z-10 ${
         !collapsed && "opaque"
-      } ${hidden && "hidden"}`}
+      } ${logoHidden && "hidden"}`}
     >
       <div className="flex justify-center items-center relative">
         <div className="logo flex justify-center">
@@ -94,17 +94,20 @@ export default function Sidenav() {
       </div>
       <div className="flex justify-center">
         <div className={`flex flex-col justify-between h-84 mt-16`}>
-          {menu.menuItems.map((item, index) => (
-            <NavLink
-              to={item.link}
-              key={index}
-              className="menu-items flex items-center"
-              activeClassName="active-link"
-            >
-              {item.icon}
-              {!collapsed && <span>{item.label}</span>}
-            </NavLink>
-          ))}
+          {menu.menuItems.map((item, index) => {
+            const ItemIcon = item.icon;
+            return (
+              <NavLink
+                to={item.link}
+                key={index}
+                className="menu-items flex items-center"
+                activeClassName="active-link"
+              >
+                <ItemIcon className={`${!collapsed ? "mr-4" : "mr-0"}`} />
+                {!collapsed && <span>{item.label}</span>}
+              </NavLink>
+            );
+          })}
         </div>
       </div>
     </Sider>
