@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/pages/login.scss";
 import { useHistory, useLocation } from "react-router-dom";
 
-import { Card, Input, Form, Button, Checkbox } from "antd";
+import { Card, Input, Form, Button, Checkbox, notification } from "antd";
 
 import LoginBg from "../assets/images/login-bg.png";
 import { ReactComponent as LogoXl } from "../assets/images/netflix-logo-large.svg";
@@ -20,7 +20,6 @@ import {
 export default function Login() {
   const [accessToken, setAccessToken] = useState();
   const [isAuthenticated, setIsAuthenticated] = useState();
-  const [validationMessage, setValidationMessage] = useState("");
   const history = useHistory();
   const location = useLocation();
 
@@ -36,14 +35,21 @@ export default function Login() {
     fetchData();
   }, [location]);
 
+  const openNotification = () => {
+    notification.open({
+      message: "Invalid TMDB username or password",
+      onClick: () => {
+        console.log("Notification Clicked!");
+      },
+    });
+  };
+
   const onFinish = (values) => {
     validateToken(values.username, values.password, accessToken)
       .then(() => history.push("/home"))
       .catch((error) => {
         if (error.response.status >= 400) {
-          setValidationMessage(
-            "The provided username and/or password is invalid"
-          );
+          openNotification();
         }
       });
   };

@@ -12,9 +12,9 @@ export function getAccessToken() {
 }
 
 export function redirectSignIn(token) {
-  window.location.href = `${AUTHENTICATE_URL}${token}?redirect_to=https://nervous-khorana-7457e2.netlify.app/login`;
+  window.location.href = `${AUTHENTICATE_URL}${token}?redirect_to=http://localhost:3000/login`;
 }
-//http://localhost:3000/login
+//https://nervous-khorana-7457e2.netlify.app/login
 
 export function validateToken(username, password, request_token) {
   return axios

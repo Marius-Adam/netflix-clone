@@ -154,6 +154,33 @@
   }
 }
 
+//Ant notification styles override
+.ant-notification {
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  width: 600px;
+  margin: auto;
+
+  .ant-notification-notice {
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    border-radius: 0px 0px 10px 10px;
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .ant-notification-notice-message {
+    font-family: "Montserrat", sans-serif;
+    color: $red;
+    margin-bottom: 0;
+    padding-right: 0;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+}
+
 //Small screens lanscape orientation
 @media only screen and (min-device-width: 280px) and (max-device-width: 760px) and (orientation: landscape) {
   .login {
