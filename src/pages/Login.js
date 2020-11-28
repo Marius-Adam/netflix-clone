@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import "../styles/pages/login.scss";
 import { useHistory, useLocation } from "react-router-dom";
-
+import { AuthContext } from "../shared/AuthContext";
 import { Card, Input, Form, Button, Checkbox, notification } from "antd";
 
 import LoginBg from "../assets/images/login-bg.png";
@@ -11,15 +11,17 @@ import { ReactComponent as TMDBLogo } from "../assets/images/tmdb-logo.svg";
 import { ReactComponent as Facebook } from "../assets/icons/facebook.svg";
 import { ReactComponent as Google } from "../assets/icons/google.svg";
 
-import {
-  getAccessToken,
-  redirectSignIn,
-  validateToken,
-} from "../api/Authentication";
-
 export default function Login() {
-  const [accessToken, setAccessToken] = useState();
-  const [isAuthenticated, setIsAuthenticated] = useState();
+  const {
+    accessToken,
+    setAccessToken,
+    isAuthenticated,
+    setIsAuthenticated,
+    getAccessToken,
+    redirectSignIn,
+    validateToken,
+    createSessionId,
+  } = useContext(AuthContext);
   const history = useHistory();
   const location = useLocation();
 
@@ -33,6 +35,7 @@ export default function Login() {
     }
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   const openNotification = () => {
@@ -46,7 +49,10 @@ export default function Login() {
 
   const onFinish = (values) => {
     validateToken(values.username, values.password, accessToken)
-      .then(() => history.push("/home"))
+      .then(() => {
+        history.push("/home");
+        createSessionId(accessToken);
+      })
       .catch((error) => {
         if (error.response.status >= 400) {
           openNotification();

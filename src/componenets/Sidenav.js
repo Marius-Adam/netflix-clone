@@ -9,6 +9,7 @@ import {
   SearchOutlined,
   CalendarOutlined,
   PlusOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import { ReactComponent as Logo } from "../assets/images/netflix-logo.svg";
 import { ReactComponent as LogoXl } from "../assets/images/netflix-logo-large.svg";
@@ -54,6 +55,11 @@ export default function Sidenav() {
         label: "New",
         link: "/new",
       },
+      {
+        icon: UserOutlined,
+        label: "Profile",
+        link: "/account",
+      }
     ],
   };
 
@@ -93,14 +99,14 @@ export default function Sidenav() {
         })}
       </div>
       <div className="flex justify-center">
-        <div className={`flex flex-col justify-between h-84 mt-16`}>
+        <div className="menu-list flex flex-col justify-between h-84 mt-16">
           {menu.menuItems.map((item, index) => {
             const ItemIcon = item.icon;
             return (
               <NavLink
                 to={item.link}
                 key={index}
-                className="menu-items flex items-center"
+                className="menu-item flex items-center"
                 activeClassName="active-link"
               >
                 <ItemIcon className={`${!collapsed ? "mr-4" : "mr-0"}`} />
@@ -109,6 +115,8 @@ export default function Sidenav() {
             );
           })}
         </div>
+      </div>
+      <div className="flex flex-col items-center">
       </div>
     </Sider>
   );

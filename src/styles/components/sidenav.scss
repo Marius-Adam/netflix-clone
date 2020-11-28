@@ -1,6 +1,11 @@
 @import "../variables.scss";
 
-.menu-items {
+svg,
+span {
+  cursor: pointer;
+}
+
+.menu-item {
   outline: none;
   border-bottom: 3px solid transparent;
   padding-bottom: 0.25rem;
@@ -23,16 +28,20 @@
     width: 1.5rem;
     height: 1.5rem;
     fill: $lightgray;
-    cursor: pointer;
     transition: all 0.3s;
   }
 
   span {
     font-family: "Montserrat", sans-serif;
     color: $lightgray;
-    cursor: pointer;
     transition: all 0.3s;
   }
+}
+
+.menu-list .menu-item:last-of-type {
+  position: absolute;
+  bottom: 3rem;
+
 }
 
 .active-link {

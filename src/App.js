@@ -4,7 +4,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-
+import {  AuthProvider } from "./shared/AuthContext";
 //Pages
 import Login from "./pages/Login";
 import Search from "./pages/Search";
@@ -13,6 +13,7 @@ import Series from "./pages/Series";
 import Movies from "./pages/Movies";
 import List from "./pages/List";
 import NewReleases from "./pages/NewReleases";
+import UserProfile from "./pages/UserProfile"
 
 //Componenets
 import Sidenav from "./componenets/Sidenav";
@@ -21,6 +22,7 @@ import Layout from "antd/lib/layout/layout";
 function App() {
   return (
     <Router>
+      <AuthProvider>
       <Layout className="flex-row">
         <Sidenav />
         <Switch>
@@ -45,9 +47,13 @@ function App() {
           <Route path={"/new"}>
             <NewReleases />
           </Route>
+          <Route path={"/account"}>
+            <UserProfile/>
+          </Route>
           <Route path="/" render={() => <Redirect to={"/login"} />} />
         </Switch>
       </Layout>
+      </AuthProvider>
     </Router>
   );
 }
